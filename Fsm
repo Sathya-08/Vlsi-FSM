@@ -1,0 +1,60 @@
+module fsm (
+input rst,
+input clk,
+input in,
+input out
+);
+reg out1 ;
+reg [1:0 ]state;
+assign out=out1;
+always @ (posedg e clk, rst)
+begin
+if (rst) b egin
+out1 =0 ; state=2'b00 ;
+end
+else b eg in
+case (state)
+2'b00 : b egin
+if (in) b eg in
+state=2 'b0 1;
+out1 =1 'b 0;
+end
+else b eg in
+state=2 'b1 1;
+out1 =1 'b 1;
+end
+end
+2'b01 : b egin
+if (in) b eg in
+state=2 'b1 1;
+out1 =1 'b 1;
+end
+else b eg in
+state=2 'b1 0;
+out1 =1 'b 0;
+end
+end
+2'b10 : b egin
+if (in) b eg in
+state=2 'b0 0;
+out1 =1 'b 0;
+end
+else b eg in
+state=2 'b0 1;
+out1 =1 'b 0;
+end
+end
+2'b11 : b egin
+if (in) begin
+state=2 'b1 1;
+out1 =1 'b 1;
+end
+else b eg in
+state=2 'b1 0;
+out1 =1 'b 0;
+end
+end
+end case
+end
+end
+endmodule
